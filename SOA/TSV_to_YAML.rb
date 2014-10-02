@@ -9,7 +9,7 @@ def file_reader_by_line(in_filename) # method for reading file line by line.
 end
 
 def tsv_parser(in_filename)
-  entire_line = [] 				           # init var for e/ line read from the original file.
+  entire_line = [] 	# init var for e/ line read from the original file.
   field = [] 					               # init var for each of the fields per line.
   file_reader_by_line(in_filename) { |new_line| entire_line.push(new_line) }
   entire_line.delete_at(0) 		       # Strips the header of the array.
@@ -20,7 +20,7 @@ end
 def arr_to_yaml(in_filename = ARGV[0], out_filename = ARGV[1])
   complete_array = []			            # init var for final array of hashes.
   if out_filename .nil? || in_filename.nil?
-      puts "Error: Please input Ruby TSV_to_YAML in_filename out_filename. "
+    puts 'Error: Please input Ruby TSV_to_YAML in_filename out_filename.'
   else
     tsv_parser(in_filename) do |field|
       field.map do |a, b, c, d, e, f|
